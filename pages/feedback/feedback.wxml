@@ -1,0 +1,15 @@
+<view class="sousuokuang">
+  <view class="wrap" wx:if="{{showText}}">
+    <view wx:for="{{renderList}}" wx:key="lists">
+      <view class="{{item.class}}" wx:if="{{item.type == 'str'}}">
+        <text>{{item.content}}</text>
+      </view>
+      <view class="{{item.class}}" wx:if="{{item.type == 'img'}}">
+        <image wx:if="{{item.type == 'img'}}" src="{{item.content}}" mode="aspectFill"/>
+      </view>
+    </view>
+  </view>
+  <button style="background:#ffffff;text-align:center;margin-top: 10%;" open-type="contact">联系作者</button>
+  <image class='weather-bg' wx:if="{{showImage}}" mode="aspectFill" src='/pages/images/wallhaven-l999.jpg'></image>
+</view>
+

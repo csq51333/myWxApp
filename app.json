@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/search/search",
+    "pages/gameList/gameList",
+    "pages/feedback/feedback"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "单机游戏最全",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+      "pagePath":  "pages/search/search",
+      "text": "查询",
+      "iconPath": "/pages/images/search1.png",
+      "selectedIconPath": "/pages/images/search2.png"
+    },{
+      "pagePath":  "pages/gameList/gameList",
+      "text": "目录",
+      "iconPath": "/pages/images/list1.png",
+      "selectedIconPath": "/pages/images/list2.png"
+    }
+    ,{
+      "pagePath":  "pages/feedback/feedback",
+      "text": "反馈",
+      "iconPath": "/pages/images/feedback1.png",
+      "selectedIconPath": "/pages/images/feedback2.png"
+    }
+  ],"selectedColor": "#d89cd7"
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 6000
+  }
+}

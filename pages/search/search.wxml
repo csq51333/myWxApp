@@ -1,0 +1,44 @@
+ <view class="sousuokuang">
+  <view class="title">游戏搜索</view>
+  <view class="sousuo">
+      <view class="shurukuang">
+          <input type="text" placeholder="输入游戏名称查询" value="" bindinput="GetSearchInput"></input>
+      </view>
+      <view class="sousuo_anniu" bindtap="ToSearch">
+          <text>查询</text>
+          <icon type="search" size="20"></icon>
+      </view>
+  </view>
+</view>
+ <image class='weather-bg'  mode="aspectFill" src='/pages/images/wallhaven-l999.jpg'></image>
+
+<view class="blockClass">
+  <!-- <view class="illustrate" style="display: {{illustrateDisplayClass}};">
+    <view>使用说明：</view>
+    <view>1.在目录中获取资源名称</view>
+    <view>2.点击资源名称或复制资源名称到搜索框中点击查询</view>
+    <view>3.点击资源名称下方按钮获取资源</view>
+    <view>4.复制下载链接在浏览器中打开</view>
+  </view> -->
+
+    <view class="illustrate" style="display: {{illustrateDisplayClass}};">
+      <view></view>
+    </view>
+
+  <block  wx:if='{{obj}}' wx:for='{{obj}}' wx:key='id' wx:for-index="index">
+    <view style="border: 1px solid #eee;padding: 0px 0 9px 0px;">
+      <view class="item">
+          <text class="textClass" user-select>{{item.name}}</text>
+      </view>
+    <view class="linkClass" bindtap="preOpenVideoAd" data-value='{{index}}' wx:if = "{{item.status == null}}" >点这里获取资源</view>
+    <view class="downloadClass" data-index = '{{index}}' wx:if = "{{item.status == 1}}" >
+      <text class="downText" user-select bindtap="copy" data-item='{{item.downloadLink}}{{item.activationCode}}'>
+        【单击这里一键复制链接至剪切板】{{item.downloadLink}} <br/> {{item.activationCode}} 
+      </text>
+    </view>
+    </view>
+  </block> 
+  <view class="marginT40">
+    <ad unit-id="adunit-df0ddf073d9e1d45" ad-type="video" ad-theme="white"></ad>
+  </view>
+</view>
