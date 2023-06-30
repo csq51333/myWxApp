@@ -30,7 +30,7 @@
       <view class="item">
           <text class="textClass" user-select>{{item.name}}</text>
       </view>
-    <view class="linkClass" bindtap="preOpenVideoAd" data-value='{{index}}' wx:if = "{{item.status == null}}" >点这里获取资源</view>
+    <view class="linkClass" bindtap="preOpenVideoAd" data-value='{{index}}' wx:if = "{{item.status == null}}" >观看广告获取内容</view>
     <view class="downloadClass" data-index = '{{index}}' wx:if = "{{item.status == 1}}" >
       <text class="downText" user-select bindtap="copy" data-item='{{item.downloadLink}}{{item.activationCode}}'>
         【单击这里一键复制链接至剪切板】{{item.downloadLink}} <br/> {{item.activationCode}} 

@@ -2,7 +2,7 @@
 <view class="top-title">
   <view class="sousuokuang">
      <!-- <view class="title1">（目前共收录{{gameCount}}个热门游戏和资源）</view>  -->
-     <view class="title">（点击目录中的名称获取）</view>
+     <view class="title">热门游戏目录</view>
 </view>
   <view class="swiper-tab">
      <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">PC游戏</view>

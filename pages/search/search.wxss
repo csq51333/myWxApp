@@ -1,6 +1,6 @@
 .sousuokuang {
   width: 100%;
-  height: 120px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,5 +129,5 @@
 }
 
 .marginT40 {
-  margin-top: 40rpx;
+  margin-top: 5rpx;
 }

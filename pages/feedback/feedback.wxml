@@ -9,7 +9,7 @@
       </view>
     </view>
   </view>
-  <button style="background:#ffffff;text-align:center;margin-top: 10%;" open-type="contact">联系作者</button>
+  <button style="background:#ffffff;text-align:center;margin: 8% 0;" open-type="contact">联系作者</button>
   <image class='weather-bg' wx:if="{{showImage}}" mode="aspectFill" src='/pages/images/wallhaven-l999.jpg'></image>
 </view>
 

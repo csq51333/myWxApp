@@ -15,7 +15,6 @@ page{
   background-color: white;
   text-align: center;
   line-height: 80rpx;
-  border-bottom: 1px solid #cccccc;
   display: flex;
   justify-content: space-around;
 }
@@ -24,8 +23,10 @@ page{
   color: #777777;
 }
 .on {
-  color:hsl(197, 75%, 54%);
-  border-bottom: 5rpx solid hsl(197, 75%, 54%);
+  /* color:hsl(197, 75%, 54%); */
+  color: #c04c99;
+  border-bottom: 5rpx solid #c04c99;
+  font-weight: 600;
 }
 .swiper {
   margin-top: 250rpx;
@@ -43,16 +44,17 @@ page{
   padding: 5px 5px;
   background-color: rgba(255, 255, 255, 0.4);
   margin-bottom: 5px;
-  color: #062488;
+  color: #5f7de0;
   border: 1px solid #eee;
   border-radius: 4px;
-  text-shadow:0 0 10px#33afe1,0 0 20px #adb4f5,0 0 30px #97bfd1;
+  /* text-shadow:0 0 10px#33afe1,0 0 20px #adb4f5,0 0 30px #97bfd1; */
 }
 .iten{ 
   width: 100%;
-  line-height: 20px;
+  height: 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .status{color:#01b367 ;}
 .cancel{color:#ccc}
@@ -81,8 +83,10 @@ page{
   width: 100%;
   height: 40px;
   text-align: center;
-  line-height: 50px;
+  line-height: 40px;
   background-color: #edca7f;
+  font-weight: 600;
+  color: #c04c99;
   /* font-size: 20px; */
 }
 

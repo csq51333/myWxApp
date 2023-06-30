@@ -88,7 +88,7 @@ Page({
         console.log('广告捕获失败',err)
         wx.showModal({
           title: '提示',
-          content: `视频广告拉取失败，请在手机上访问小程序${err}`,
+          content: `视频广告拉取失败：${JSON.stringify(err)}`,
         })
       })
      // 监听关闭
@@ -116,6 +116,7 @@ Page({
             //根据下标找到目标,改变状态  
             if (missionArr[i].status == 0) {
               missionArr[i].status = null;
+              debugger
             }
         }
       }
@@ -207,7 +208,7 @@ Page({
         id: openId,
         openId,
         name: new Date().getTime(),
-        count: 0,
+        count: 100,
         createTime: that.formatTime(new Date()),
         date: that.formatTime(new Date()),
         lastLoginDate: that.formatTime(new Date()),
@@ -241,7 +242,7 @@ Page({
     this.setData({
       currentUserInfo: currentUserInfo || {},
     })
-    if (currentUserInfo?.count > 2000) {
+    if (currentUserInfo?.count > 50000) {
       wx.showModal({
         title: '检测到问题操作',
         content: '包含敏感搜索，或者搜索频率过于频繁，请休息4小时，或直接联系管理员恢复',
@@ -260,8 +261,11 @@ Page({
   // button 点击事件
   openVideoAd(e) {
     var index = e.currentTarget.dataset.value;
-    // this.data.obj[index].status = 0;
-    // this.acceptMission();
+    if(this.data.currentUserInfo.count < 102) {
+      this.data.obj[index].status = 0;
+      this.acceptMission();
+      return
+    }
     if (index > -1) {
         this.data.obj[index].status = 0;
     } else {

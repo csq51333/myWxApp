@@ -15,10 +15,11 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "condition": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.6.5",
+  "libVersion": "2.32.3",
   "appid": "wxf219303305826525",
   "projectname": "video_ad_test",
   "condition": {},
