@@ -2,7 +2,7 @@
   <view class="title">游戏搜索</view>
   <view class="sousuo">
       <view class="shurukuang">
-          <input type="text" placeholder="输入游戏名称查询" value="" bindinput="GetSearchInput"></input>
+          <input type="text" placeholder="输入游戏名称查询,每日首次免广告" value="" bindinput="GetSearchInput"></input>
       </view>
       <view class="sousuo_anniu" bindtap="ToSearch">
           <text>查询</text>

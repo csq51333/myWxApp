@@ -19,6 +19,7 @@ Page({
     blackOpenIdList: [],
     currentUserInfo: {},
     idMap: {},
+    thisDayFirst: true
   },
   tapName(event) {
     this.setData({
@@ -54,10 +55,10 @@ Page({
       date: that.formatTime(new Date()),
       history: currentUserInfo.history,
       historyMap: currentUserInfo.historyMap,
-    })
+    }, currentUserInfo)
   },
-  updateUser(data) {
-    const currentUserInfo = this.data.currentUserInfo
+  updateUser(data, currentUserInfo) {
+    currentUserInfo = currentUserInfo || this.data.currentUserInfo;
     cont2.doc(currentUserInfo._id).update({
       data,
       success: res => {
@@ -116,7 +117,6 @@ Page({
             //根据下标找到目标,改变状态  
             if (missionArr[i].status == 0) {
               missionArr[i].status = null;
-              debugger
             }
         }
       }
@@ -154,19 +154,31 @@ Page({
   },
 
   loginCallBack(openId, oldId) {
+    
     if(!this.data.blackOpenIdList.includes(openId)) {
       this.addUser(openId)
     } else {
       // 更新登录时间
-      console.log('更新登录', this.data.idMap[openId])
+      let currentUserInfo = this.data.idMap[openId]
+      console.log('更新登录', currentUserInfo)
       this.updateUser({
         lastLoginDate: this.formatTime(new Date()),
-      })
+      }, currentUserInfo)
     }
+    
+    const currentTime = this.formatTime(new Date());
+    const lastTime = wx.getStorageSync('lastLoginTimes') || currentTime;
+    const thisDayFirst = lastTime.split(' ')[0] != currentTime.split(' ')[0];
+    console.log('获取时间lastTime', lastTime)
+    wx.setStorageSync('lastLoginTimes', currentTime);
+    console.log('对比，', lastTime, currentTime, thisDayFirst)
+    let currentUserInfo = this.data.idMap[openId]
+    console.log('登陆人信息', currentUserInfo)
     this.setData({
       oldId,
       currentOpenId: openId,
-      currentUserInfo: this.data.idMap[openId]
+      currentUserInfo,
+      thisDayFirst
     })
     // wx.showModal({
     //   title: '登录',
@@ -261,9 +273,14 @@ Page({
   // button 点击事件
   openVideoAd(e) {
     var index = e.currentTarget.dataset.value;
-    if(this.data.currentUserInfo.count < 102) {
+    wx.setStorageSync('lastLoginTimes', this.formatTime(new Date()));
+    let checkFirst = (this.data.currentUserInfo.count < 103)
+    if(checkFirst || this.data.thisDayFirst) {
       this.data.obj[index].status = 0;
       this.acceptMission();
+      this.setData({
+        thisDayFirst: false
+      })
       return
     }
     if (index > -1) {

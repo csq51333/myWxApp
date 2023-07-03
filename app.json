@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/search/search",
     "pages/gameList/gameList",
-    "pages/feedback/feedback",
-    "pages/search/search"
+    "pages/feedback/feedback"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,6 +12,12 @@
   },
   "tabBar": {
     "list": [
+      {
+        "pagePath":  "pages/search/search",
+        "text": "查询",
+        "iconPath": "/pages/images/search1.png",
+        "selectedIconPath": "/pages/images/search2.png"
+      },
       {
       "pagePath":  "pages/gameList/gameList",
       "text": "目录",
@@ -23,12 +29,6 @@
       "text": "内容",
       "iconPath": "/pages/images/feedback1.png",
       "selectedIconPath": "/pages/images/feedback2.png"
-    },
-    {
-      "pagePath":  "pages/search/search",
-      "text": "查询",
-      "iconPath": "/pages/images/search1.png",
-      "selectedIconPath": "/pages/images/search2.png"
     }
   ],
   "selectedColor": "#d89cd7"
